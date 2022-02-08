@@ -73,6 +73,7 @@ for obj in objects:
                 if len(obj.data.uv_layers) < 2:
                     print('No secondary uv map found, baking in uvSet_0')
                     uvLayerInd = 0
+                bpy.context.object.data.uv_layers[bpy.context.object.data.uv_layers[uvLayerInd].name].active = True
                 print('Baking in uvSet_1')
                 uvMap_node.uv_map = obj.data.uv_layers[uvLayerInd].name
                 links.new(uvMap_node.outputs[0], texture_node.inputs[0])
